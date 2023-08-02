@@ -14,6 +14,12 @@ if (vsgXchange_FOUND)
     target_link_libraries(vsgqtmdi vsgXchange::vsgXchange)
 endif()
 
+if(ENABLE_QT_SUFFIX)
+    set_target_properties(vsgqtmdi
+        PROPERTIES
+            OUTPUT_NAME vsgqtmdi${VSGQT_PACKAGE_SUFFIX}
+    )
+endif()
 
 install(TARGETS vsgqtmdi DESTINATION bin)
 
